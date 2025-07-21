@@ -1,19 +1,36 @@
-- name: Install dependencies
-  run: |
-    npm install
+name: CI
 
-- name: Install Playwright browsers
-  run: |
-    npx playwright install --with-deps
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
 
-- name: Run lint
-  run: |
-    npm run lint
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
-- name: Run build
-  run: |
-    npm run build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-- name: Run tests
-  run: |
-    npm test
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Install Playwright browsers
+        run: |
+          npx playwright install --with-deps
+
+      - name: Run build
+        run: |
+          npm run build
+
+      - name: Run tests
+        run: |
+          npm test

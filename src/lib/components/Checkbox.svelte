@@ -35,9 +35,9 @@
 
 <Checkbox.Group {name} bind:value {disabled}>
 	<div class="flex flex-col gap-2">
-		{#each options as option, i (option.value)}
+		{#each options as option}
 			<div class="flex items-center space-x-2">
-				<Checkbox.Root value={option.value} class={checkboxClasses} {disabled} id={`${i}`}>
+				<Checkbox.Root value={option.value} class={checkboxClasses} {disabled}>
 					{#snippet children({ checked })}
 						{#if checked}
 							<svg

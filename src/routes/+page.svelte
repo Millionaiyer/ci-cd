@@ -6,7 +6,7 @@
 		{ label: 'Marketing', value: 'marketing' },
 		{ label: 'Promotions', value: 'promotions' },
 		{ label: 'News', value: 'news' },
-		{ label: 'Special Offers', value: 'special' }
+		{ label: 'Special Offers', value: 'specialization' }
 	];
 </script>
 
